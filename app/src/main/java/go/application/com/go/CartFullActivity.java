@@ -1,7 +1,6 @@
 package go.application.com.go;
 
 import android.app.Activity;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.BitmapFactory;
@@ -9,13 +8,14 @@ import android.graphics.Matrix;
 import android.graphics.PointF;
 import android.net.Uri;
 import android.provider.MediaStore;
-import android.support.v7.app.AlertDialog;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import go.application.com.go.Adapter.CartAdapter;
 
 public class CartFullActivity extends Activity  implements View.OnTouchListener {
     private static int RESULT_LOAD_IMAGE = 1;

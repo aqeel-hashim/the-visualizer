@@ -1,4 +1,4 @@
-package go.application.com.go;
+package go.application.com.go.Adapter;
 
 
 import android.content.Context;
@@ -9,6 +9,8 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+
+import go.application.com.go.R;
 
 public class ImageAdapter extends BaseAdapter{
 

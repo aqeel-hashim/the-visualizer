@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import go.application.com.go.Adapter.ImageAdapter;
+
 public class FullImageActivity extends AppCompatActivity {
 
 

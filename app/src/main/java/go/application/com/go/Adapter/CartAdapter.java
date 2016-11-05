@@ -1,4 +1,4 @@
-package go.application.com.go;
+package go.application.com.go.Adapter;
 
 
 import android.content.Context;
@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
+
+import go.application.com.go.R;
 
 public class CartAdapter extends BaseAdapter
 

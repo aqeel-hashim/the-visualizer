@@ -11,6 +11,7 @@ import android.widget.GridView;
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
+import go.application.com.go.Adapter.RecogniserGridAdapter;
 import go.application.com.go.Utilities.DatabaseOperations;
 
 public class RecogniserGrid extends AppCompatActivity {

@@ -1,4 +1,4 @@
-package go.application.com.go;
+package go.application.com.go.Adapter;
 
 import android.content.Context;
 import android.graphics.BitmapFactory;

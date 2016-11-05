@@ -1,15 +1,13 @@
 package go.application.com.go;
 
 import android.content.Intent;
-import android.support.annotation.IdRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
+
+import go.application.com.go.Adapter.CartAdapter;
 
 public class Cart extends AppCompatActivity {
 

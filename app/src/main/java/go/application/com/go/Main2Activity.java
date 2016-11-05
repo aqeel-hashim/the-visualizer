@@ -7,8 +7,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
-import java.io.File;
-import java.util.ArrayList;
+import go.application.com.go.Adapter.ImageAdapter;
 
 public class Main2Activity extends AppCompatActivity {
 

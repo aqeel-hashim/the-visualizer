@@ -51,26 +51,6 @@ public class Main3Activity extends AppCompatActivity {
 
                         break;
 
-                    case R.id.id_recognizer:
-                        fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                        fragmentTransaction.replace(R.id.main_container, new RecognizerFragment());
-                        fragmentTransaction.commit();
-                        getSupportActionBar().setTitle("Recognizer Fragment");
-                        item.setChecked(true);
-                        drawerLayout.closeDrawers();
-                        break;
-
-
-                    case R.id.id_visualizer:
-                        fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                        fragmentTransaction.replace(R.id.main_container, new VisualizerFragment());
-                        fragmentTransaction.commit();
-                        getSupportActionBar().setTitle("Visualizer Fragment");
-                        item.setChecked(true);
-                        drawerLayout.closeDrawers();
-
-                        break;
-
                     case R.id.id_colorpalette:
                         fragmentTransaction = getSupportFragmentManager().beginTransaction();
                         fragmentTransaction.replace(R.id.main_container, new ColorPaletteFragment());
