@@ -5,25 +5,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.FrameLayout;
 import android.widget.GridView;
 
 import go.application.com.go.Adapter.CartAdapter;
 
-public class Cart extends AppCompatActivity {
+public class Cart extends NavigationScreen {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cart);
-//
-//        addFragment(android.R.id.content,
-//                new ProductsFragment(),
-//                ProductsFragment.FRAGMENT_PRODUCTS);
-
-//        try
-//        {
+        FrameLayout content_frame = (FrameLayout) findViewById(R.id.content_frame);
+        getLayoutInflater().inflate(R.layout.activity_cart, content_frame);
             GridView gridView = (GridView) findViewById(R.id.gridView);
 
+        if (gridView != null) {
             gridView.setAdapter(new CartAdapter(this));
             gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
@@ -33,37 +29,8 @@ public class Cart extends AppCompatActivity {
                     startActivity(i);
                 }
             });
-//        }
-//        catch (Exception e)
-//        {
-//            e.printStackTrace();
+        }
         }
 
-
-
-//
-//    //////////start fragment/////////////////
-//    protected void addFragment(@IdRes int containerViewId,
-//                               @NonNull Fragment fragment,
-//                               @NonNull String fragmentTag) {
-//        getSupportFragmentManager()
-//                .beginTransaction()
-//                .add(containerViewId, fragment, fragmentTag)
-//                .disallowAddToBackStack()
-//                .commit();
-//    }
-//
-//    protected void replaceFragment(@IdRes int containerViewId,
-//                                   @NonNull Fragment fragment,
-//                                   @NonNull String fragmentTag,
-//                                   @Nullable String backStackStateName) {
-//        getSupportFragmentManager()
-//                .beginTransaction()
-//                .replace(containerViewId, fragment, fragmentTag)
-//                .addToBackStack(backStackStateName)
-//                .commit();
-//    }
-//
-//// end fragment//////////
 
 }

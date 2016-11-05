@@ -1,25 +1,29 @@
 package go.application.com.go;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.graphics.PointF;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.os.Bundle;
+import android.support.v4.content.res.ResourcesCompat;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
-
 import go.application.com.go.Adapter.CartAdapter;
 
-public class CartFullActivity extends Activity  implements View.OnTouchListener {
+public class CartFullActivity extends AppCompatActivity  implements View.OnTouchListener {
     private static int RESULT_LOAD_IMAGE = 1;
-    private static final int RQS_OPEN_IMAGE = 1;
+//    private static final int RQS_OPEN_IMAGE = 1;
     //these matrices will be used to move and zoom image
     private Matrix matrix = new Matrix();
     private Matrix savedMatrix = new Matrix();
@@ -32,7 +36,6 @@ public class CartFullActivity extends Activity  implements View.OnTouchListener 
     private PointF mid = new PointF();
     private float oldDist = 1f;
     private float d = 0f;
-    private float newRot = 0f;
     private float[] lastEvent = null;
     String mData;
 
@@ -41,17 +44,34 @@ public class CartFullActivity extends Activity  implements View.OnTouchListener 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart_full);
-
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        if(getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
+        }
+        if(toolbar != null){
+            toolbar.setNavigationIcon(resize(ResourcesCompat.getDrawable(getResources(), R.drawable.back, null)));
+            toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    //do something you want
+                    startActivity(new Intent(CartFullActivity.this, Cart.class));
+                    finish();
+                }
+            });
+        }
         Intent i = getIntent();
         int position = i.getExtras().getInt("id");
         CartAdapter adapter = new CartAdapter(this);
 
-        Button trybutton= (Button) findViewById(R.id.trybutton);
+        //Button trybutton= (Button) findViewById(R.id.trybutton);
 
         ImageView topimage = (ImageView) findViewById(R.id.topimage);
-        topimage.setImageResource(adapter.images[position]);
-
-        topimage.setOnTouchListener(this);
+        if (topimage != null) {
+            topimage.setImageResource(adapter.images[position]);
+            topimage.setOnTouchListener(this);
+        }
         Bundle extras = getIntent().getExtras();
         if(extras != null)
         {
@@ -60,25 +80,20 @@ public class CartFullActivity extends Activity  implements View.OnTouchListener 
         }
     }
 
+    private Drawable resize(Drawable image) {
+        Bitmap b = ((BitmapDrawable)image).getBitmap();
+        Bitmap bitmapResized = Bitmap.createScaledBitmap(b, 55,55, false);
+        return new BitmapDrawable(getResources(), bitmapResized);
+    }
+
     public void showtrydialog(View v)
     {
+        Intent i = new Intent(
+                Intent.ACTION_PICK,
+                android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(i, RESULT_LOAD_IMAGE);
+        Toast.makeText(getApplicationContext(), "You have asked to open gallery", Toast.LENGTH_SHORT).show();
 
-//        AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
-//        alertDialog.setTitle("Photo Recognizer");
-//        alertDialog.setMessage("Whats is the backdrop image?");
-//        alertDialog.setPositiveButton("Open Gallery", new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialog, int which) {
-
-                Intent i = new Intent(
-                        Intent.ACTION_PICK,
-                        android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                startActivityForResult(i, RESULT_LOAD_IMAGE);
-                Toast.makeText(getApplicationContext(), "You have asked to open gallery", Toast.LENGTH_SHORT).show();
-//            }
-//        });
-//
-//        alertDialog.show();
     }
 
     @Override
@@ -92,14 +107,17 @@ public class CartFullActivity extends Activity  implements View.OnTouchListener 
 
                Cursor cursor = getContentResolver().query(selectedImage,
                        filePathColumn, null, null, null);
-               cursor.moveToFirst();
-
-               int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
-               String picturePath = cursor.getString(columnIndex);
-               cursor.close();
-
+               String picturePath = null;
+               if (cursor != null) {
+                   cursor.moveToFirst();
+                   int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+                   picturePath = cursor.getString(columnIndex);
+                   cursor.close();
+               }
                ImageView bottomimage = (ImageView) findViewById(R.id.bottomimage);
-               bottomimage.setImageBitmap(BitmapFactory.decodeFile(picturePath));
+               if (bottomimage != null) {
+                   bottomimage.setImageBitmap(BitmapFactory.decodeFile(picturePath));
+               }
            }
            catch (Exception e)
            {
@@ -155,7 +173,7 @@ public class CartFullActivity extends Activity  implements View.OnTouchListener 
 
                     if (lastEvent != null && event.getPointerCount() == 3) {
 
-                        newRot = rotation(event);
+                        float newRot = rotation(event);
                         float r = newRot - d;
                         float[] values = new float[9];
                         matrix.getValues(values);

@@ -22,9 +22,6 @@ public class Register extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-//        addFragment(android.R.id.content,
-//                new ProductsFragment(),
-//                ProductsFragment.FRAGMENT_PRODUCTS);
         USER_NAME = (EditText) findViewById(R.id.nametext);
         USER_PASS = (EditText) findViewById(R.id.passwordtext);
         CON_PASS = (EditText) findViewById(R.id.confirmpassword);

@@ -36,8 +36,6 @@
                 android:onClick="send" />
         </LinearLayout>
 
-
-
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="282dp"

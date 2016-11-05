@@ -25,19 +25,17 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <activity android:name=".Main2Activity" />
+        <activity android:name=".Main2Activity"/>
         <activity android:name=".FullImageActivity" />
         <activity android:name=".OpenCV" />
         <activity android:name=".ImageRecognition" />
         <activity android:name=".grabcut1" />
         <activity android:name=".CannyEdgeDetector" />
-        <activity android:name=".Grabcut" />
         <activity android:name=".Cart" />
         <activity android:name=".CartFullActivity" />
         <activity android:name=".Login" />
         <activity android:name=".Register" />
         <activity android:name=".ForgotPassword" />
-        <activity android:name=".Main3Activity" />
         <activity android:name=".Homepage"
             android:label="HomePage"
             android:theme="@style/AppTheme">
@@ -47,7 +45,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Multigesture" />
         <activity android:name=".colorPalette" />
         <activity android:name=".VisualizerFullActivity" />
         <activity android:name=".RecognizerPage" />
@@ -55,12 +52,7 @@
         <activity android:name=".Recognizerfirstpage" />
         <activity android:name=".RecogniserGrid" />
         <activity android:name=".AdminAddDetails" />
-        <activity
-            android:name=".NavigationScreen"
-            android:label="@string/title_activity_navigation_screen"
-            android:theme="@style/AppTheme">
-
-        </activity>
+        <activity android:name=".NavigationScreen"/>
     </application>
 
 </manifest>

@@ -31,9 +31,7 @@ public class NavigationScreen extends AppCompatActivity
         session = new SessionManager(getApplicationContext());
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-//        ViewStub stub = (ViewStub) findViewById(R.id.layout_stub);
-//        stub.setLayoutResource(R.layout.content_navigation_screen);
-//        stub.inflate();
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -42,17 +40,6 @@ public class NavigationScreen extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
-
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
-        //LayoutInflater inflater = (LayoutInflater)      this.getSystemService(LAYOUT_INFLATER_SERVICE);
     }
 
     @Override
@@ -109,13 +96,9 @@ public class NavigationScreen extends AppCompatActivity
         }else if (id == R.id.nav_logout) {
             session.logoutUser();
 
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
+        }else if (id == R.id.nav_shooping_cart) {
+            Intent intent = new Intent(NavigationScreen.this, Cart.class);
+            startActivity(intent);
 
         }
 

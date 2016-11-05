@@ -32,10 +32,9 @@ public class colorPalette extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_color_palette);
         hview=(LinearLayout) findViewById(R.id.palette);
-        hview.setOnTouchListener(viewOnTouchListener);
-        addFragment(android.R.id.content,
-                new ColorPaletteFragment(),
-                ColorPaletteFragment.FRAGMENT_TAG);
+        if (hview != null) {
+            hview.setOnTouchListener(viewOnTouchListener);
+        }
         bitmapData = Arrays.asList(toObjects(getIntent().getByteArrayExtra("byteArray")));
     }
 

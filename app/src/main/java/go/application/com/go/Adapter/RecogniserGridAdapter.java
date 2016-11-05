@@ -18,7 +18,7 @@ public class RecogniserGridAdapter extends BaseAdapter {
     private Context mContext;
     private ArrayList<byte[]> images;
 
-    RecogniserGridAdapter(Context c, ArrayList<byte[]> a){
+    public RecogniserGridAdapter(Context c, ArrayList<byte[]> a){
         this.mContext = c;
         this.images = a;
     }
