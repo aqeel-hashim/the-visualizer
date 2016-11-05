@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="go.application.com.go">
+
+    <uses-feature android:name="android.hardware.camera2" />
+    <uses-feature android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-feature android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:hardwareAccelerated="false"
+        android:largeHeap="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="The Visualizer"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+
+        </activity>
+        <!--
+ ATTENTION: This was auto-generated to add Google Play services to your project for
+     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
+        -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <activity android:name=".Main2Activity" />
+        <activity android:name=".FullImageActivity" />
+        <activity android:name=".OpenCV" />
+        <activity android:name=".ImageRecognition" />
+        <activity android:name=".grabcut1" />
+        <activity android:name=".CannyEdgeDetector" />
+        <activity android:name=".Grabcut" />
+        <activity android:name=".Cart" />
+        <activity android:name=".CartFullActivity" />
+        <activity android:name=".Login" />
+        <activity android:name=".Register" />
+        <activity android:name=".ForgotPassword" />
+        <activity android:name=".Main3Activity" />
+        <activity android:name=".Homepage"
+            android:label="HomePage"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Multigesture" />
+        <activity android:name=".colorPalette" />
+        <activity android:name=".VisualizerFullActivity" />
+        <activity android:name=".RecognizerPage" />
+        <activity android:name=".VisualizerPage" />
+        <activity android:name=".Recognizerfirstpage" />
+        <activity android:name=".RecogniserGrid" />
+        <activity android:name=".AdminAddDetails" />
+        <activity
+            android:name=".NavigationScreen"
+            android:label="@string/title_activity_navigation_screen"
+            android:theme="@style/AppTheme">
+
+        </activity>
+    </application>
+
+</manifest>

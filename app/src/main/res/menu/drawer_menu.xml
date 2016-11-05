@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<group android:checkableBehavior="single">
+    <item
+        android:id="@+id/id_home"
+        android:title="Home"
+        android:icon="@drawable/homeicon"
+        ></item>
+
+    <item
+        android:id="@+id/id_recognizer"
+        android:title="Photo Recognizer"
+        android:icon="@drawable/ic_action_settings"
+        ></item>
+
+    <item
+        android:id="@+id/id_visualizer"
+        android:title="Photo Visualizer"
+        android:icon="@drawable/visualizericon"
+        ></item>
+
+    <item
+        android:id="@+id/id_colorpalette"
+        android:title="Choose Colours"
+        android:icon="@drawable/colours"
+        ></item>
+    <item
+        android:id="@+id/id_products"
+        android:title="Find the best Products"
+        android:icon="@drawable/ic_menu_gallery"
+        ></item>
+
+</group>
+
+    <item android:title="Social">
+        <menu>
+            <item
+                android:title="Login"
+                android:id="@+id/id_login"
+                android:icon="@drawable/loginicon"
+                ></item>
+            <item
+                android:id="@+id/id_group"
+                android:title="Group"
+                android:icon="@drawable/ic_menu_send"
+                ></item>
+            <item
+                android:id="@+id/id_share"
+                android:title="Share"
+                android:icon="@drawable/ic_menu_share"
+                ></item>
+        </menu>
+    </item>
+
+
+</menu>
