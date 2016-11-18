@@ -132,16 +132,16 @@
         "source": "E:\\Programming\\AndroidStudioProjects\\Go\\openCVLibrary310\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\abc_action_bar_title_item.xml"
     },
     {
+        "merged": "E:\\Programming\\AndroidStudioProjects\\Go\\openCVLibrary310\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_button_bar_material.xml",
+        "source": "E:\\Programming\\AndroidStudioProjects\\Go\\openCVLibrary310\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\abc_alert_dialog_button_bar_material.xml"
+    },
+    {
         "merged": "E:\\Programming\\AndroidStudioProjects\\Go\\openCVLibrary310\\build\\intermediates\\res\\merged\\debug\\layout\\select_dialog_multichoice_material.xml",
         "source": "E:\\Programming\\AndroidStudioProjects\\Go\\openCVLibrary310\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\select_dialog_multichoice_material.xml"
     },
     {
         "merged": "E:\\Programming\\AndroidStudioProjects\\Go\\openCVLibrary310\\build\\intermediates\\res\\merged\\debug\\layout\\activity_canny_edge.xml",
         "source": "E:\\Programming\\AndroidStudioProjects\\Go\\openCVLibrary310\\src\\main\\res\\layout\\activity_canny_edge.xml"
-    },
-    {
-        "merged": "E:\\Programming\\AndroidStudioProjects\\Go\\openCVLibrary310\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_button_bar_material.xml",
-        "source": "E:\\Programming\\AndroidStudioProjects\\Go\\openCVLibrary310\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.4.0\\res\\layout\\abc_alert_dialog_button_bar_material.xml"
     },
     {
         "merged": "E:\\Programming\\AndroidStudioProjects\\Go\\openCVLibrary310\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_mode_bar.xml",

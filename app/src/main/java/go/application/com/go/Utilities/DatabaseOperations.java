@@ -75,7 +75,7 @@ public class DatabaseOperations extends SQLiteOpenHelper {
 
     public Cursor getImages(DatabaseOperations dop) {
         SQLiteDatabase SQ = dop.getReadableDatabase();
-        String[] coloumns = {TableData.TableInfo.IMAGE, TableData.TableInfo.IMAGE_TYPE};
+        String[] coloumns = {TableData.TableInfo.IMAGE,TableData.TableInfo.IMAGE_NAME, TableData.TableInfo.IMAGE_TYPE, TableData.TableInfo.IMAGE_RETAILER, TableData.TableInfo.IMAGE_ADDRESS,TableData.TableInfo.IMAGE_CONTACT};
         Cursor CR = SQ.query(TableData.TableInfo.IMAGE_TABLE_NAME, coloumns, null, null, null, null, null);
         return CR;
     }

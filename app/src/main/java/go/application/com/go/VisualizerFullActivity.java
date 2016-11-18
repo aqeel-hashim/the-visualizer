@@ -9,6 +9,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -25,6 +26,8 @@ import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 
 import java.io.ByteArrayOutputStream;
+import java.text.DateFormat;
+import java.util.Date;
 
 public class VisualizerFullActivity extends NavigationScreen implements Runnable {
 
@@ -210,5 +213,12 @@ public class VisualizerFullActivity extends NavigationScreen implements Runnable
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         AppIndex.AppIndexApi.end(client, getIndexApiAction());
         client.disconnect();
+    }
+
+    public void saveImage(View view) {
+        String currentDateTimeString = DateFormat.getDateTimeInstance().format(new Date());
+        Bitmap bitmap = ((BitmapDrawable)imgSource1.getDrawable()).getBitmap();
+        MediaStore.Images.Media.insertImage(getContentResolver(), bitmap, "visualizer_"+currentDateTimeString , "");
+
     }
 }

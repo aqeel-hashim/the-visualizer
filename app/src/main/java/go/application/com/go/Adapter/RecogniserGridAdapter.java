@@ -2,6 +2,7 @@ package go.application.com.go.Adapter;
 
 import android.content.Context;
 import android.graphics.BitmapFactory;
+import go.application.com.go.model.Image;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -16,9 +17,9 @@ import java.util.ArrayList;
 public class RecogniserGridAdapter extends BaseAdapter {
 
     private Context mContext;
-    private ArrayList<byte[]> images;
+    private ArrayList<Image> images;
 
-    public RecogniserGridAdapter(Context c, ArrayList<byte[]> a){
+    public RecogniserGridAdapter(Context c, ArrayList<Image> a){
         this.mContext = c;
         this.images = a;
     }
@@ -30,7 +31,7 @@ public class RecogniserGridAdapter extends BaseAdapter {
 
     @Override
     public Object getItem(int position) {
-        return BitmapFactory.decodeByteArray(this.images.get(position),0,this.images.get(position).length);
+        return BitmapFactory.decodeFile(images.get(position).getPath());
     }
 
     @Override
@@ -42,7 +43,7 @@ public class RecogniserGridAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
 
         ImageView imageView = new ImageView (mContext);
-        imageView.setImageBitmap(BitmapFactory.decodeByteArray(this.images.get(position),0,this.images.get(position).length));
+        imageView.setImageBitmap(BitmapFactory.decodeFile(images.get(position).getPath()));
         imageView.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
         imageView.setLayoutParams(new GridView.LayoutParams(240, 240));
         return imageView;

@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
 import java.io.ByteArrayOutputStream;
@@ -18,7 +19,7 @@ import java.util.ArrayList;
 
 import go.application.com.go.Adapter.RecogniserGridAdapter;
 import go.application.com.go.Utilities.DatabaseOperations;
-
+import go.application.com.go.model.Image;
 public class RecogniserGrid extends AppCompatActivity {
 
     @Override
@@ -44,22 +45,30 @@ public class RecogniserGrid extends AppCompatActivity {
         }
         GridView grid = (GridView) findViewById(R.id.recongiser_Grid);
         Intent i = getIntent();
-        String type = i.getStringExtra("type");
+        final String type = i.getStringExtra("type");
         DatabaseOperations dop = new DatabaseOperations(this);
         Cursor cr = dop.getImages(dop);
-        ArrayList<byte[]> images = new ArrayList<>();
+        final ArrayList<Image> images = new ArrayList<>();
         cr.moveToFirst();
         do {
-            if (type.equals(cr.getString(1))) {
-                Bitmap pic = BitmapFactory.decodeFile(cr.getString(0));
-                ByteArrayOutputStream _bs = new ByteArrayOutputStream();
-                pic.compress(Bitmap.CompressFormat.PNG, 50, _bs);
-                images.add(_bs.toByteArray());
+            if (type.equals(cr.getString(2))) {
+                images.add(getImage(cr));
             }
         }
         while (cr.moveToNext());
 
         grid.setAdapter(new RecogniserGridAdapter(this, images));
+        grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(RecogniserGrid.this, RecogniserFullActivity.class);
+                intent.putExtra("type",type);
+                intent.putExtra("Image", images.get(position));
+                startActivity(intent);
+
+
+            }
+        });
 
 
     }
@@ -68,5 +77,10 @@ public class RecogniserGrid extends AppCompatActivity {
         Bitmap b = ((BitmapDrawable)image).getBitmap();
         Bitmap bitmapResized = Bitmap.createScaledBitmap(b, 55,55, false);
         return new BitmapDrawable(getResources(), bitmapResized);
+    }
+
+    private Image getImage(Cursor cr){
+
+        return new Image(cr.getString(0),cr.getString(1),cr.getString(2),cr.getString(3),cr.getString(4),cr.getString(5));
     }
 }

@@ -9,14 +9,12 @@
     <application
         android:allowBackup="true"
         android:hardwareAccelerated="false"
-        android:largeHeap="true"
         android:icon="@mipmap/ic_launcher"
         android:label="The Visualizer"
+        android:largeHeap="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
-
-        </activity>
+        <activity android:name=".MainActivity"></activity>
         <!--
  ATTENTION: This was auto-generated to add Google Play services to your project for
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -25,7 +23,7 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <activity android:name=".Main2Activity"/>
+        <activity android:name=".Main2Activity" />
         <activity android:name=".FullImageActivity" />
         <activity android:name=".OpenCV" />
         <activity android:name=".ImageRecognition" />
@@ -36,7 +34,8 @@
         <activity android:name=".Login" />
         <activity android:name=".Register" />
         <activity android:name=".ForgotPassword" />
-        <activity android:name=".Homepage"
+        <activity
+            android:name=".Homepage"
             android:label="HomePage"
             android:theme="@style/AppTheme">
             <intent-filter>
@@ -52,7 +51,8 @@
         <activity android:name=".Recognizerfirstpage" />
         <activity android:name=".RecogniserGrid" />
         <activity android:name=".AdminAddDetails" />
-        <activity android:name=".NavigationScreen"/>
+        <activity android:name=".NavigationScreen" />
+        <activity android:name=".RecogniserFullActivity"></activity>
     </application>
 
 </manifest>
